@@ -8,4 +8,12 @@ pipeline {
            }
        } 
     }
+    post {
+        success {
+            mail to: 'yinglichen@xiaoman.cn',subject:'The Pipeline success mail test'
+        }
+        failure {
+            mail to: 'yinglichen@xiaoman.cn',subject:'The Pipeline faild mail test'
+        }
+    }
 }
