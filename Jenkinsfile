@@ -9,15 +9,20 @@ pipeline {
        } 
     }
     post {
+      always{
+        echo 'always'
+      }
+      changed{
+        echo 'status changed'
+      }
         success {
-            mail to: 'yinglichen@xiaoman.cn', 
-            subject:'The Pipeline success mail test',
-            body:'The Pipeline success mail test'
+          echo 'success'
         }
         failure {
-            mail to: 'yinglichen@xiaoman.cn', 
-            subject:'The Pipeline faild mail test',
-            body:'The Pipeline faild mail test'
+          echo 'failure'
+        }
+        cleanup{
+          echo 'cleanup'
         }
     }
 }
