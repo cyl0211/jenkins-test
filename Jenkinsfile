@@ -4,7 +4,7 @@ pipeline {
     stages{
        stage('Build'){
            steps{
-               echo 'hello world',
+               echo 'hello world'
                build{
                 job:'pipeline-hello-world'
                 parameters:[
