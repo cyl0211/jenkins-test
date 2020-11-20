@@ -4,12 +4,14 @@ pipeline {
     stages{
        stage('Build'){
            steps{
+             script { 
                build {
                 job: "pipeline-hello-world",
                 parameters: [
                   string(name:'CHOICE', value:'dev')
                 ]
               }
+             }
            }
        } 
     }
