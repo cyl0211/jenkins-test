@@ -4,13 +4,20 @@ pipeline {
     stages{
        stage('Build'){
            steps{
-               echo 'hello world'
+               echo 'hello world',
+               build{
+                job:'pipeline-hello-world'
+                parameters:[
+                  string(name:'CHOICE',value:'dev')
+                ]
+              }
            }
        } 
     }
     parameters {
-        choice(name: '构建环境', choices: ['dev', 'prod'], description: '构建的环境，默认为dev')
+        choice(name: 'CHOICE', choices: ['dev', 'prod'], description: '构建的环境，默认为dev')
     }
+    
     post {
 
       always{
