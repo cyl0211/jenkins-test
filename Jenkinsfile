@@ -1,16 +1,16 @@
 pipeline {
-    agent any
+    agent wuneng
     
     stages{
        stage('Build'){
          input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'TEST', description: 'Who should I say hello to?')
-                }
-            }
+              message "Should we continue?"
+              ok "Yes, we should."
+              submitter "alice,bob"
+              parameters {
+                  string(name: 'PERSON', defaultValue: 'TEST', description: 'Who should I say hello to?')
+              }
+          }
            steps{
                echo "Hello ${params.BUILD_ENV}-${PERSON}"
            }
