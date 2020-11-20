@@ -4,19 +4,15 @@ pipeline {
     stages{
        stage('Build'){
            steps{
-             script { 
-               build {
-                job: "pipeline-hello-world",
-                parameters: [
-                  string(name:'CHOICE', value:'dev')
-                ]
-              }
-             }
+               echo "Hello ${params.BUILD_ENV}"
            }
        } 
     }
+
+    options { buildDiscarder(logRotator(numToKeepStr: '3')) }
+
     parameters {
-        choice(name: 'CHOICE', choices: ['dev', 'prod'], description: '构建的环境，默认为dev')
+        choice(name: 'BUILD_ENV', choices: ['dev', 'prod'], description: '构建的环境，默认为dev')
     }
     
     post {
