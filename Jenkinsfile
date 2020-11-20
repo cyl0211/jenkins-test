@@ -6,9 +6,9 @@ pipeline {
            steps{
                echo 'hello world'
                build {
-                job:'pipeline-hello-world',
+                job: 'pipeline-hello-world',
                 parameters: [
-                  string(name:'CHOICE',value:'dev')
+                  string(name:'CHOICE', value:'dev')
                 ]
               }
            }
