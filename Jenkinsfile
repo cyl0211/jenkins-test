@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'wuneng' }
+    agent any
     
     stages{
        stage('Build'){
