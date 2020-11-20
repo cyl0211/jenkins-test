@@ -5,9 +5,9 @@ pipeline {
        stage('Build'){
            steps{
                echo 'hello world'
-               build{
-                job:'pipeline-hello-world'
-                parameters:[
+               build {
+                job:'pipeline-hello-world',
+                parameters: [
                   string(name:'CHOICE',value:'dev')
                 ]
               }
